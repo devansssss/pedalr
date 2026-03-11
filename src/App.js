@@ -516,9 +516,14 @@ export default function App() {
         </p>
 
         {/* Card + Rank Table */}
-        <div className="fadeUp" style={{
-          display:'flex', gap:24, alignItems:'flex-start', justifyContent:'center',
-          flexWrap:'wrap', marginBottom:72, animationDelay:'0.5s',
+        <style>{`
+          @media (max-width: 640px) {
+            .hero-cards { flex-direction: column !important; align-items: center !important; }
+          }
+        `}</style>
+        <div className="fadeUp hero-cards" style={{
+          display:'flex', flexDirection:'row', gap:24, alignItems:'flex-start', justifyContent:'center',
+          marginBottom:72, animationDelay:'0.5s',
         }}>
           <ShareCard />
           <RankTable />

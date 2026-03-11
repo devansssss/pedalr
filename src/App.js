@@ -280,65 +280,75 @@ function EmailForm({ variant }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column', gap:10 }}>
-      <div style={{ display:'flex', gap:8 }}>
-        <input
-          type="email"
-          placeholder="your@email.com"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required
-          style={{
-            flex:1,
-            background: T.surf2,
-            border: `1px solid ${T.border}`,
-            borderRadius: 10,
-            padding: '12px 16px',
-            fontSize: 14,
-            color: T.text,
-            outline: 'none',
-            transition: 'border-color 0.2s',
-          }}
-          onFocus={e => e.target.style.borderColor = isEarly ? T.accent : T.muted}
-          onBlur={e => e.target.style.borderColor = T.border}
-        />
-        <button
-          type="submit"
-          disabled={status === 'loading'}
-          style={{
-            background: isEarly ? T.accent : 'transparent',
-            border: `1px solid ${isEarly ? T.accent : T.border}`,
-            borderRadius: 10,
-            padding: '12px 20px',
-            fontSize: 13,
-            fontWeight: 600,
-            fontFamily: 'Barlow',
-            color: isEarly ? T.white : T.text,
-            cursor: 'pointer',
-            whiteSpace: 'nowrap',
-            letterSpacing: '0.02em',
-            transition: 'all 0.2s',
-            display: 'flex', alignItems: 'center', gap: 8,
-          }}
-          onMouseEnter={e => {
-            if (!isEarly) { e.currentTarget.style.borderColor = T.muted; e.currentTarget.style.color = T.white; }
-            else e.currentTarget.style.opacity = '0.88';
-          }}
-          onMouseLeave={e => {
-            if (!isEarly) { e.currentTarget.style.borderColor = T.border; e.currentTarget.style.color = T.text; }
-            else e.currentTarget.style.opacity = '1';
-          }}
-        >
-          {status === 'loading'
-            ? <div style={{ width:14, height:14, border:`2px solid rgba(255,255,255,0.3)`,
-                borderTopColor:'white', borderRadius:'50%', animation:'spin 0.8s linear infinite' }} />
-            : isEarly ? 'Reserve Lifetime' : 'Join Waitlist'}
-        </button>
-      </div>
-      {status === 'error' && (
-        <div style={{ fontSize:12, color:'#FF6B6B' }}>Something went wrong. Try again.</div>
-      )}
-    </form>
+    <>
+      <style>{`
+        @media (max-width: 480px) {
+          .form-row { flex-direction: column !important; }
+          .form-btn { width: 100% !important; justify-content: center !important; }
+        }
+      `}</style>
+      <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column', gap:10 }}>
+        <div className="form-row" style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
+          <input
+            type="email"
+            placeholder="your@email.com"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+            style={{
+              flex:1,
+              minWidth: 0,
+              background: T.surf2,
+              border: `1px solid ${T.border}`,
+              borderRadius: 10,
+              padding: '12px 16px',
+              fontSize: 14,
+              color: T.text,
+              outline: 'none',
+              transition: 'border-color 0.2s',
+            }}
+            onFocus={e => e.target.style.borderColor = isEarly ? T.accent : T.muted}
+            onBlur={e => e.target.style.borderColor = T.border}
+          />
+          <button
+            type="submit"
+            disabled={status === 'loading'}
+            className="form-btn"
+            style={{
+              background: isEarly ? T.accent : 'transparent',
+              border: `1px solid ${isEarly ? T.accent : T.border}`,
+              borderRadius: 10,
+              padding: '12px 20px',
+              fontSize: 13,
+              fontWeight: 600,
+              fontFamily: 'Barlow',
+              color: isEarly ? T.white : T.text,
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              letterSpacing: '0.02em',
+              transition: 'all 0.2s',
+              display: 'flex', alignItems: 'center', gap: 8,
+            }}
+            onMouseEnter={e => {
+              if (!isEarly) { e.currentTarget.style.borderColor = T.muted; e.currentTarget.style.color = T.white; }
+              else e.currentTarget.style.opacity = '0.88';
+            }}
+            onMouseLeave={e => {
+              if (!isEarly) { e.currentTarget.style.borderColor = T.border; e.currentTarget.style.color = T.text; }
+              else e.currentTarget.style.opacity = '1';
+            }}
+          >
+            {status === 'loading'
+              ? <div style={{ width:14, height:14, border:`2px solid rgba(255,255,255,0.3)`,
+                  borderTopColor:'white', borderRadius:'50%', animation:'spin 0.8s linear infinite' }} />
+              : isEarly ? 'Reserve Lifetime' : 'Join Waitlist'}
+          </button>
+        </div>
+        {status === 'error' && (
+          <div style={{ fontSize:12, color:'#FF6B6B' }}>Something went wrong. Try again.</div>
+        )}
+      </form>
+    </>
   );
 }
 

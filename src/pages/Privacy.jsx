@@ -92,7 +92,7 @@ export default function Privacy() {
             This Privacy Notice for Pedalr (doing business as Pedalr) (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), describes how and why we might access, collect, store, use, and/or share (&quot;process&quot;) your personal information when you use our services (&quot;Services&quot;), including when you:
           </p>
           <ul>
-            <li>Visit our website at getpedalr.vercel.app or any website of ours that links to this Privacy Notice</li>
+            <li>Visit our website at pedalr.vercel.app or any website of ours that links to this Privacy Notice</li>
             <li>Download and use our mobile application (Pedalr), or any other application of ours that links to this Privacy Notice</li>
             <li>Use our services. Pedalr is a premium, gamified social GPS tracking application designed for cyclists and fitness enthusiasts. It combines high-accuracy ride tracking with competitive gaming elements, allowing users to earn experience points (XP), climb a structured rank ladder, and unlock digital achievements based on their distance and elevation. The platform emphasizes community engagement through a social activity feed, allowing riders to share their progress and highlight standout performances. Built with a focus on high-end aesthetics and data-rich displays.</li>
             <li>Engage with us in other related ways, including any marketing or events</li>
